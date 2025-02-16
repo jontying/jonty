@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="https://example.com/edm-favicon.png">
+    <link rel="icon" type="image/png" href="https://example.com/synjan-logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DJ Pulse | Electronic Dance Music Producer & Performer">
+    <meta name="description" content="DJ SYNJAN | Cybernetic Sound Architect">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://djpulse.com">
-    <meta property="og:title" content="DJ Pulse | Electrifying Beats Worldwide">
-    <meta property="og:description" content="Creating unforgettable musical experiences">
-    <meta property="og:image" content="https://example.com/edm-og-image.jpg">
+    <meta property="og:url" content="https://djsynjan.com">
+    <meta property="og:title" content="DJ SYNJAN | Neural Network Beats">
+    <meta property="og:description" content="Fusing human rhythm with machine precision">
+    <meta property="og:image" content="https://example.com/synjan-og.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://djpulse.com">
-    <meta property="twitter:title" content="DJ Pulse | Electrifying Beats Worldwide">
-    <meta property="twitter:description" content="Creating unforgettable musical experiences">
-    <meta property="twitter:image" content="https://example.com/edm-og-image.jpg">
+    <meta property="twitter:url" content="https://djsynjan.com">
+    <meta property="twitter:title" content="DJ SYNJAN | Neural Network Beats">
+    <meta property="twitter:description" content="Fusing human rhythm with machine precision">
+    <meta property="twitter:image" content="https://example.com/synjan-og.jpg">
 
-    <title>DJ Pulse | Electronic Music Producer</title>
+    <title>DJ SYNJAN | Cybernetic Sound Architect</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
     <style>
         :root {
-            --primary: #0b0b15;
-            --secondary: #6c43f6;
-            --accent: #ff00ff;
+            --primary: #0a0a12;
+            --secondary: #00ff9d;
+            --accent: #7d12ff;
+            --neon: #ff003c;
         }
 
         .hero {
-            background: linear-gradient(45deg, #0b0b15, #1a1a2e, #6c43f6);
+            background: 
+                linear-gradient(45deg, 
+                    rgba(10,10,18,1) 0%,
+                    rgba(32,32,64,1) 50%,
+                    rgba(10,10,18,1) 100%),
+                url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%230a0a12"/><path d="M0 50Q50 30 100 50Q50 70 0 50" fill="%2300ff9d22"/></svg>');
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: var(--secondary);
             position: relative;
             overflow: hidden;
         }
@@ -47,165 +52,178 @@
             position: absolute;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, 
-                rgba(108,67,246,0.2) 0%, 
-                rgba(255,0,255,0.1) 50%, 
-                transparent 100%);
-            animation: pulse 4s infinite;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 15px,
+                var(--neon) 15px,
+                var(--neon) 30px
+            );
+            opacity: 0.1;
+            animation: scan 20s linear infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.2); opacity: 0.4; }
-            100% { transform: scale(1); opacity: 0.8; }
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
         }
 
         .event-card {
             background: var(--primary);
             border: 1px solid var(--secondary);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(108,67,246,0.3);
-        }
-
-        .track-list {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .track-item {
-            padding: 1rem;
-            background: rgba(108,67,246,0.1);
-            border-left: 4px solid var(--accent);
-        }
-
-        .visualizer {
-            height: 200px;
-            background: #1a1a2e;
             position: relative;
             overflow: hidden;
         }
 
-        .visualizer-bar {
+        .event-card::before {
+            content: '';
             position: absolute;
-            bottom: 0;
-            width: 3px;
-            background: var(--secondary);
-            animation: visualizer 0.5s infinite alternate;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                transparent 48%,
+                var(--secondary) 50%,
+                transparent 52%
+            );
+            background-size: 300% 300%;
+            animation: grid 2s linear infinite;
         }
 
-        @keyframes visualizer {
-            0% { height: 20%; }
-            100% { height: 100%; }
+        @keyframes grid {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .track-item {
+            background: rgba(0, 255, 157, 0.05);
+            border-left: 4px solid var(--neon);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .track-item:hover {
+            transform: translateX(10px);
+        }
+
+        .cyber-button {
+            background: transparent;
+            border: 2px solid var(--neon);
+            color: var(--neon);
+            padding: 0.8rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .cyber-button::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--neon);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: clip-path 0.3s;
+        }
+
+        .cyber-button:hover::before {
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .glitch-text {
+            text-shadow: 
+                2px 2px var(--neon),
+                -1px -1px var(--accent);
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="container-fluid">
         <ul>
-            <li><strong>DJ PULSE</strong></li>
+            <li><strong class="glitch-text">SYNJAN_∆</strong></li>
             <li class="mobile-menu">
                 <details role="list">
-                    <summary aria-haspopup="listbox">☰</summary>
+                    <summary aria-haspopup="listbox">≡</summary>
                     <ul role="listbox">
-                        <li><a href="#music">Music</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#music">AUDIO CORE</a></li>
+                        <li><a href="#events">EVENT LOG</a></li>
+                        <li><a href="#about">BIO DATA</a></li>
+                        <li><a href="#contact">CONNECTION</a></li>
                     </ul>
                 </details>
             </li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <h1>ELECTRIFYING BEATS</h1>
-            <p>Creating sonic experiences that move body and soul</p>
+            <h1 class="glitch-text">SYNJAN_OS v2.0.24</h1>
+            <p>SYNTHWAVE // CYBERPUNK // NEURALBEAT</p>
         </div>
     </header>
 
-    <!-- Music Section -->
     <section id="music" class="container">
-        <h2>Latest Releases</h2>
+        <h2>// AUDIO PROCESSORS</h2>
         <div class="track-list">
             <article class="track-item">
-                <h3>Neon Dreams (2024)</h3>
-                <p>Future Bass Single · 125 BPM</p>
-                <audio controls style="width: 100%">
-                    <source src="neon-dreams.mp3" type="audio/mpeg">
+                <h3>NEON HORIZON.flac</h3>
+                <p>DARK SYNTH / BPM: 128 / KEY: F#m</p>
+                <audio controls style="width: 100%; filter: hue-rotate(90deg);">
+                    <source src="neon-horizon.mp3" type="audio/mpeg">
                 </audio>
             </article>
             <article class="track-item">
-                <h3>Skyline Symphony</h3>
-                <p>Progressive House EP · Out Now</p>
-                <audio controls style="width: 100%">
-                    <source src="skyline-symphony.mp3" type="audio/mpeg">
+                <h3>DIGITAL MIRAGE.wav</h3>
+                <p>CYBERPOP / BPM: 110 / KEY: Am</p>
+                <audio controls style="width: 100%; filter: hue-rotate(180deg);">
+                    <source src="digital-mirage.mp3" type="audio/mpeg">
                 </audio>
             </article>
         </div>
     </section>
 
-    <!-- Events Section -->
     <section id="events" class="container">
-        <h2>Upcoming Shows</h2>
+        <h2>// SCHEDULED EVENTS</h2>
         <div class="grid">
             <article class="event-card">
-                <h3>Electric Paradise Festival</h3>
-                <p>Miami · March 15, 2024</p>
-                <button>Get Tickets</button>
-            </article>
-            <article class="event-card">
-                <h3>Ibiza Summer Residency</h3>
-                <p>Ushuaïa · June-August 2024</p>
-                <button>VIP Packages</button>
-            </article>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="container">
-        <h2>The Pulse Experience</h2>
-        <div class="grid">
-            <div>
-                <img src="dj-profile.jpg" alt="DJ Pulse in studio" style="border-radius: 50%">
-            </div>
-            <div>
-                <p>From underground raves to mainstage festivals, DJ Pulse has been shaping the global EDM scene since 2015. Blending technical mastery with emotional storytelling through sound.</p>
-                <div class="stats">
-                    <p>1M+ Monthly Listeners · 250+ Shows · 50+ Releases</p>
+                <div class="content" style="padding: 1rem; background: var(--primary); position: relative; z-index: 1;">
+                    <h3>APPLE PODCASTS</h3>
+                    <p>CODE: 2024-09-15</p>
+                    <button class="cyber-button">REQUEST ACCESS</button>
                 </div>
-            </div>
+            </article>
+            <article class="event-card">
+                <div class="content" style="padding: 1rem; background: var(--primary); position: relative; z-index: 1;">
+                    <h3>YOUTUBE</h3>
+                    <p>CODE: 2024-11-23</p>
+                    <button class="cyber-button">VIP DECRYPT</button>
+                </div>
+            </article>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="container">
-        <h2>Live Moments</h2>
-        <div class="gallery-grid">
-            <!-- Add live performance images -->
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container">
-        <h2>Connect</h2>
+    <section id="about" class="container">
+        <h2>// SYSTEM PROFILE</h2>
         <div class="grid">
             <div>
-                <h3>Booking</h3>
-                <p>NA: booking@djpulse.com<br>
-                EU: eu-bookings@djpulse.com</p>
+                <img src="synjan-profile.png" alt="DJ SYNJAN interface" style="border: 2px solid var(--neon);">
             </div>
             <div>
-                <h3>Collaborate</h3>
-                <p>studio@djpulse.com<br>
-                +1-555-EDM-PULSE</p>
+                <p>> INITIALIZED: 2018<br>
+                > GENRE: SYNTHETIC WAVEFORMS<br>
+                > VERSION: 2.0.24<br>
+                > ACTIVE IN: 12 VIRTUAL REALMS<br>
+                > PROCESSING POWER: 1.2M GHZ</p>
             </div>
         </div>
     </section>
@@ -214,38 +232,29 @@
         <div class="grid">
             <div>
                 <small>
-                    © 2024 DJ Pulse · 
-                    <a href="tour-dates.html">Tour Dates</a> · 
-                    <a href="press-kit.html">Press Kit</a>
+                    © 2024 SYNJAN SYSTEMS<br>
+                    [ <a href="#" style="color: var(--neon);">AUDIO MANIFEST</a> ]
                 </small>
             </div>
             <div>
                 <small>
-                    Follow the Beat:<br>
-                    <a href="https://spoti.fi/djpulse">Spotify</a> ·
-                    <a href="https://instagram.com/djpulse">Instagram</a> ·
-                    <a href="https://soundcloud.com/djpulse">SoundCloud</a>
+                    NETWORK NODES:<br>
+                    [ <a href="https://soundcloud.com/synjan" style="color: var(--secondary);">SOUNDCLOUD</a> ]
+                    [ <a href="https://instagram.com/djsynjan" style="color: var(--accent);">INSTAGRAM</a> ]
+                    [ <a href="https://spoti.fi/synjan" style="color: var(--neon);">SPOTIFY</a> ]
                 </small>
             </div>
         </div>
     </footer>
 
     <script>
-        // Add audio visualizer animation
-        document.querySelectorAll('audio').forEach(audio => {
-            audio.addEventListener('play', () => {
-                const visualizer = document.createElement('div');
-                visualizer.className = 'visualizer';
-                audio.parentNode.appendChild(visualizer);
-                
-                for(let i = 0; i < 50; i++) {
-                    const bar = document.createElement('div');
-                    bar.className = 'visualizer-bar';
-                    bar.style.left = `${i * 5}px`;
-                    bar.style.animationDelay = `${i * 0.05}s`;
-                    visualizer.appendChild(bar);
-                }
-            });
+        document.addEventListener('DOMContentLoaded', () => {
+            const glitchElements = document.querySelectorAll('.glitch-text');
+            setInterval(() => {
+                glitchElements.forEach(element => {
+                    element.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+                });
+            }, 50);
         });
     </script>
 </body>
