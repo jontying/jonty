@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="https://example.com/edm-favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DJ Pulse | Electronic Dance Music Producer & Performer">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://djpulse.com">
+    <meta property="og:title" content="DJ Pulse | Electrifying Beats Worldwide">
+    <meta property="og:description" content="Creating unforgettable musical experiences">
+    <meta property="og:image" content="https://example.com/edm-og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://djpulse.com">
+    <meta property="twitter:title" content="DJ Pulse | Electrifying Beats Worldwide">
+    <meta property="twitter:description" content="Creating unforgettable musical experiences">
+    <meta property="twitter:image" content="https://example.com/edm-og-image.jpg">
+
+    <title>DJ Pulse | Electronic Music Producer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
+    <style>
+        :root {
+            --primary: #0b0b15;
+            --secondary: #6c43f6;
+            --accent: #ff00ff;
+        }
+
+        .hero {
+            background: linear-gradient(45deg, #0b0b15, #1a1a2e, #6c43f6);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(108,67,246,0.2) 0%, 
+                rgba(255,0,255,0.1) 50%, 
+                transparent 100%);
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .event-card {
+            background: var(--primary);
+            border: 1px solid var(--secondary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(108,67,246,0.3);
+        }
+
+        .track-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .track-item {
+            padding: 1rem;
+            background: rgba(108,67,246,0.1);
+            border-left: 4px solid var(--accent);
+        }
+
+        .visualizer {
+            height: 200px;
+            background: #1a1a2e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visualizer-bar {
+            position: absolute;
+            bottom: 0;
+            width: 3px;
+            background: var(--secondary);
+            animation: visualizer 0.5s infinite alternate;
+        }
+
+        @keyframes visualizer {
+            0% { height: 20%; }
+            100% { height: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>DJ PULSE</strong></li>
+            <li class="mobile-menu">
+                <details role="list">
+                    <summary aria-haspopup="listbox">☰</summary>
+                    <ul role="listbox">
+                        <li><a href="#music">Music</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>ELECTRIFYING BEATS</h1>
+            <p>Creating sonic experiences that move body and soul</p>
+        </div>
+    </header>
+
+    <!-- Music Section -->
+    <section id="music" class="container">
+        <h2>Latest Releases</h2>
+        <div class="track-list">
+            <article class="track-item">
+                <h3>Neon Dreams (2024)</h3>
+                <p>Future Bass Single · 125 BPM</p>
+                <audio controls style="width: 100%">
+                    <source src="neon-dreams.mp3" type="audio/mpeg">
+                </audio>
+            </article>
+            <article class="track-item">
+                <h3>Skyline Symphony</h3>
+                <p>Progressive House EP · Out Now</p>
+                <audio controls style="width: 100%">
+                    <source src="skyline-symphony.mp3" type="audio/mpeg">
+                </audio>
+            </article>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="container">
+        <h2>Upcoming Shows</h2>
+        <div class="grid">
+            <article class="event-card">
+                <h3>Electric Paradise Festival</h3>
+                <p>Miami · March 15, 2024</p>
+                <button>Get Tickets</button>
+            </article>
+            <article class="event-card">
+                <h3>Ibiza Summer Residency</h3>
+                <p>Ushuaïa · June-August 2024</p>
+                <button>VIP Packages</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2>The Pulse Experience</h2>
+        <div class="grid">
+            <div>
+                <img src="dj-profile.jpg" alt="DJ Pulse in studio" style="border-radius: 50%">
+            </div>
+            <div>
+                <p>From underground raves to mainstage festivals, DJ Pulse has been shaping the global EDM scene since 2015. Blending technical mastery with emotional storytelling through sound.</p>
+                <div class="stats">
+                    <p>1M+ Monthly Listeners · 250+ Shows · 50+ Releases</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="container">
+        <h2>Live Moments</h2>
+        <div class="gallery-grid">
+            <!-- Add live performance images -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2>Connect</h2>
+        <div class="grid">
+            <div>
+                <h3>Booking</h3>
+                <p>NA: booking@djpulse.com<br>
+                EU: eu-bookings@djpulse.com</p>
+            </div>
+            <div>
+                <h3>Collaborate</h3>
+                <p>studio@djpulse.com<br>
+                +1-555-EDM-PULSE</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container">
+        <div class="grid">
+            <div>
+                <small>
+                    © 2024 DJ Pulse · 
+                    <a href="tour-dates.html">Tour Dates</a> · 
+                    <a href="press-kit.html">Press Kit</a>
+                </small>
+            </div>
+            <div>
+                <small>
+                    Follow the Beat:<br>
+                    <a href="https://spoti.fi/djpulse">Spotify</a> ·
+                    <a href="https://instagram.com/djpulse">Instagram</a> ·
+                    <a href="https://soundcloud.com/djpulse">SoundCloud</a>
+                </small>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add audio visualizer animation
+        document.querySelectorAll('audio').forEach(audio => {
+            audio.addEventListener('play', () => {
+                const visualizer = document.createElement('div');
+                visualizer.className = 'visualizer';
+                audio.parentNode.appendChild(visualizer);
+                
+                for(let i = 0; i < 50; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = 'visualizer-bar';
+                    bar.style.left = `${i * 5}px`;
+                    bar.style.animationDelay = `${i * 0.05}s`;
+                    visualizer.appendChild(bar);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
