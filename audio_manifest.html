@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNJAN_OS :: Audio Manifest</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        :root {
+            --primary: #0a0a12;
+            --secondary: #00ff9d;
+            --accent: #7d12ff;
+            --neon: #ff003c;
+        }
+
+        body {
+            background: var(--primary);
+            color: var(--secondary);
+            font-family: 'Courier New', monospace;
+        }
+
+        .manifest-header {
+            border-bottom: 3px solid var(--neon);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .manifest-header::after {
+            content: '▲▼▲▼';
+            position: absolute;
+            right: 0;
+            bottom: -1.5rem;
+            color: var(--accent);
+            animation: blink 1s infinite;
+        }
+
+        .track-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .track-card {
+            background: rgba(0, 255, 157, 0.05);
+            border: 1px solid var(--secondary);
+            padding: 1.5rem;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .track-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .waveform {
+            height: 100px;
+            background: linear-gradient(90deg, 
+                var(--neon) 20%, 
+                var(--accent) 50%, 
+                var(--secondary) 80%);
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .waveform::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 3px,
+                rgba(0,0,0,0.3) 3px,
+                rgba(0,0,0,0.3) 6px
+            );
+        }
+
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .metadata-item {
+            padding: 0.5rem;
+            background: rgba(125, 18, 255, 0.1);
+            border-left: 2px solid var(--accent);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hex-pattern {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 50% 50%, 
+                    transparent 20%, 
+                    rgba(0, 255, 157, 0.05) 21%, 
+                    transparent 22%),
+                radial-gradient(circle at 50% 50%, 
+                    transparent 24%, 
+                    rgba(255, 0, 60, 0.05) 25%, 
+                    transparent 26%);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .download-link {
+            border: 1px solid var(--neon);
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 0, 60, 0.3),
+                transparent
+            );
+            transition: 0.3s;
+        }
+
+        .download-link:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="hex-pattern"></div>
+    
+    <nav class="container-fluid">
+        <ul>
+            <li><strong class="glitch-text">AUDIO_MANIFEST.vol2</strong></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="manifest-header">
+            <h1>SYNJAN AUDIO CORE DATABASE</h1>
+            <p>Version 2.0.24 :: Last Updated: 2024-02-20 23:59:59 UTC</p>
+        </header>
+
+        <section class="track-grid">
+            <!-- Track 1 -->
+            <article class="track-card">
+                <h3>NEON_REFLEX.fm</h3>
+                <div class="waveform"></div>
+                <div class="metadata">
+                    <div class="metadata-item">
+                        <span>BPM:</span> 128
+                    </div>
+                    <div class="metadata-item">
+                        <span>KEY:</span> F#m
+                    </div>
+                    <div class="metadata-item">
+                        <span>LENGTH:</span> 3:45
+                    </div>
+                    <div class="metadata-item">
+                        <span>GENRE:</span> CYBERPOP
+                    </div>
+                </div>
+                <a href="#" class="download-link">DOWNLOAD WAV</a>
+                <a href="#" class="download-link" style="margin-left: 1rem;">STREAM</a>
+            </article>
+
+            <!-- Track 2 -->
+            <article class="track-card">
+                <h3>DIGITAL_GHOSTWRITER.wav</h3>
+                <div class="waveform"></div>
+                <div class="metadata">
+                    <div class="metadata-item">
+                        <span>BPM:</span> 110
+                    </div>
+                    <div class="metadata-item">
+                        <span>KEY:</span> Am
+                    </div>
+                    <div class="metadata-item">
+                        <span>LENGTH:</span> 4:22
+                    </div>
+                    <div class="metadata-item">
+                        <span>GENRE:</span> DARK SYNTH
+                    </div>
+                </div>
+                <a href="#" class="download-link">DOWNLOAD WAV</a>
+                <a href="#" class="download-link" style="margin-left: 1rem;">STREAM</a>
+            </article>
+
+            <!-- Add more tracks as needed -->
+        </section>
+
+        <section class="container">
+            <h2>SPECTRAL ANALYSIS</h2>
+            <div style="height: 300px; background: var(--primary); border: 2px solid var(--accent); padding: 1rem;">
+                <div style="display: flex; height: 100%; gap: 2px;">
+                    <div style="flex: 1; background: rgba(0, 255, 157, 0.1);"></div>
+                    <div style="flex: 1; background: rgba(125, 18, 255, 0.1);"></div>
+                    <div style="flex: 1; background: rgba(255, 0, 60, 0.1);"></div>
+                    <!-- Add more frequency bands -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div class="grid">
+            <div>
+                <small>
+                    [ <a href="index.html" style="color: var(--neon);">RETURN TO INTERFACE</a> ]<br>
+                    [ <a href="#" style="color: var(--secondary);">AUDIO CORE v1 ARCHIVE</a> ]
+                </small>
+            </div>
+            <div>
+                <small>
+                    ENCRYPTION STATUS: ACTIVE<br>
+                    DATA INTEGRITY: 100%
+                </small>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add glitch effect to headers
+        const headers = document.querySelectorAll('h1, h2, h3');
+        headers.forEach(header => {
+            header.style.textShadow = `
+                2px 2px ${var(--neon)},
+                -1px -1px ${var(--accent)}
+            `;
+            setInterval(() => {
+                header.style.transform = `
+                    translate(${Math.random() * 4 - 2}px, 
+                    ${Math.random() * 4 - 2}px)
+                `;
+            }, 50);
+        });
+
+        // Add waveform animation
+        const waveforms = document.querySelectorAll('.waveform');
+        waveforms.forEach(wave => {
+            setInterval(() => {
+                wave.style.background = `
+                    linear-gradient(90deg, 
+                        var(--${Math.random() > 0.5 ? 'neon' : 'accent'}) ${Math.random() * 20}%, 
+                        var(--${Math.random() > 0.5 ? 'accent' : 'secondary'}) 50%, 
+                        var(--${Math.random() > 0.5 ? 'secondary' : 'neon'}) 80%)
+                `;
+            }, 500);
+        });
+    </script>
+</body>
+</html>
